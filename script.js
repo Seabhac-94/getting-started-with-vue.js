@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        message: 'Hello Vue!',
+        explanation: "Small webpage using the basics of Vue.js, <code> shows the code in script.js:",
     }
 });
 
@@ -46,7 +47,7 @@ var app6 = new Vue({
     el: '#app-6',
     data: {
         message: "",
-        placeholder: "test"
+        placeholder: "Type in me!"
     }
 });
 
@@ -67,4 +68,3 @@ var app7 = new Vue({
         ]
     }
 });
-

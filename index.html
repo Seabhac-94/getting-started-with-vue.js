@@ -1,78 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-<title>Vue.js</title>
-<!-- development version, includes helpful console warnings -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <title>Vue.js</title>
+    <!-- development version, includes helpful console warnings -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
 </head>
+
 <body>
 
-<div class="container-fluid">
+    <div id="app-container" class="container-fluid">
 
-    <div id="app">
-        <h3>
-            {{ message }}
-        </h3>
-    </div>
-    
-    <div id="app-2">
-        <span v-bind:title="message">
-            Hover your mouse over me for a few seconds to see my dynamically bound title!
-        </span>
-    </div>
-    
-    <div id="app-3">
+        <div class="row">
+            <div class="col-12">
+                <div id="app">
+                    <h3>
+                        {{ message }}
+                    </h3>
+                    <p>{{ explanation }}</p>
+                </div>
+<pre>
+    <code>
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!',
+        explanation: "Small webpage using the basics of Vue.js",
+    }
+});
+    </code>
+</pre>
+        </div>
 
-        <!--<input value you for seen here>-->
-        <span v-if="seen">Now you see me</span>
-    </div>
-    
-    <div id="app-4">
-        <ol>
-            <li v-for="todo in todo_list">
-                {{ todo.text }}
-            </li>
-        </ol>
-    </div>
-    
-    <div id="app-5">
-        <p>{{ message }}</p>
-        <button v-on:click="reverseMessage">Reverse Message</button>
-    </div>
-    
-    <div id="app-6">
-        <p>{{ message }}</p>
-        <input v-model="message" :placeholder="placeholder">
-    </div>
+            <div class="col-6">
+                <div id="app-2">
+                    <span v-bind:title="message">
+                        Hover your mouse over me for a few seconds to see my dynamically bound title!
+                    </span>
+                </div>
+
+                <p-explain><!-- Taken from p-explain.template --></p-explain>
+<pre>
+    <code>
+var app2 = new Vue({
+    el: '#app-2',
+    data: {
+        message: 'You loaded this page on ' + new Date().toLocaleString()
+    }
+});                        
+    </code>
+</pre>
+            </div>
+
+            <div class="col-6">
+                <div id="app-3">
+                    <!--<input value you for seen here>-->
+                    <span v-if="seen">Now you see me</span>
+                </div>
+<pre>
+    <code>
+var app3 = new Vue({
+    el: '#app-3',
+    data: {
+        seen: true
+        }
+});                        
+    </code>
+</pre>
+            </div>
+
+            <div class="col-6">
+                <div id="app-4">
+                    <ol>
+                        <li v-for="todo in todo_list">
+                            {{ todo.text }}
+                        </li>
+                    </ol>
+                </div>
+<pre>
+    <code>
+var app4 = new Vue({
+    el: '#app-4',
+    data: {
+        todo_list: [
+            { text: "Learn a bit of Vue.js" },
+            { text: "Update github repository" },
+            { text: "Learn more Vue.." }
+        ]
+    }
+});</code>
+</pre>
+            </div>
+      
+            <div class="col-6">
+                <div id="app-5">
+                    <p>{{ message }}</p>
+                    <button v-on:click="reverseMessage">Reverse Message</button>
+                </div>
+<pre>
+    <code>
+var app5 = new Vue({
+    el: '#app-5',
+    data: {
+        message: 'Hello Vue.js'
+    },
+    methods: {
+        reverseMessage: function() {
+            this.message = this.message.split('').reverse().join('')
+            }
+        }
+});</code>
+</pre>
+            </div>
+
+            <div class="col-6">
+                <div id="app-6">
+                    <p>{{ message }}</p>
+                    <input v-model="message" :placeholder="placeholder">
+                </div>
+<pre>
+    <code>
+var app6 = new Vue({
+    el: '#app-6',
+    data: {
+        message: "",
+        placeholder: "Type in me!"
+    }
+});       
+    </code>
+</pre>
+            </div>
+
+            <div class="col-6">
+                <div id="app-7">
+                    <ol>
+                        <todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item-id'></todo-item>
+                    </ol>
+                </div>
+<pre>
+    <code>
+Vue.component('todo-item', {
+props: ['todo'],
+template: 'li {{ todo.text }} li', // li is wrapped in <> but changed for pre.code formatting
+});
+
+var app7 = new Vue({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Meat' }
+        ]
+    }
+});        
+    </code>
+</pre>
+            </div>            
+        </div>
+ 
+
+       
 
 
-    <div id="app-7">
-        <ol>
-            <todo-item
-            v-for='item in groceryList'
-            v-bind:todo='item'
-            v-bind:key='item-id'
-            ></todo-item>
-        </ol>    
+
+
+
+
+
+
+
+
     </div>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script src="/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
 
 </body>
+
 </html>

@@ -18,7 +18,7 @@ var app3 = new Vue({
     data: {
         // trueOrFalse: false,
         placeholder: "Type true or false",
-        seen: "false"
+        seen: ""
     }
 });
 

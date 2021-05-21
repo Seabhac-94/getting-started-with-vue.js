@@ -62,7 +62,9 @@ var app2 = new Vue({
             <div class="col-6">
                 <div id="app-3">
                     <!--<input value you for seen here>-->
-                    <span v-if="seen">Now you see me</span>
+                    <input v-model="seen" :placeholder="placeholder">
+                    <span v-if="seen === 'true' ">Now you see me</span>
+                    <span v-else>Now you don't</span>
                 </div>
 <pre>
     <code>

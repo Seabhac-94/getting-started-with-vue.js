@@ -1,8 +1,12 @@
 pre {
-    background-color: pink;
+    background-color: rgb(238, 238, 238);
     padding: 2px;
 }
 
 code {
     font-weight: bold;
+}
+
+.col-6 {
+    margin: 10px 0;
 }

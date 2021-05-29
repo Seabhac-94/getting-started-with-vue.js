@@ -12,14 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
-
 </head>
 
 <body>
 
     <div id="app-container" class="container-fluid">
-
         <div class="row">
             <div class="col-12">
                 <div id="app">
@@ -28,7 +25,7 @@
                     </h3>
                     <p>{{ explanation }}</p>
                 </div>
-<pre>
+                <pre>
     <code>
 var app = new Vue({
     el: '#app',
@@ -39,7 +36,7 @@ var app = new Vue({
 });
     </code>
 </pre>
-        </div>
+            </div>
 
             <div class="col-6">
                 <div id="app-2">
@@ -47,7 +44,7 @@ var app = new Vue({
                         Hover your mouse over me for a few seconds to see my dynamically bound title!
                     </span>
                 </div>
-<pre>
+                <pre>
     <code>
 var app2 = new Vue({
     el: '#app-2',
@@ -67,7 +64,7 @@ var app2 = new Vue({
                     <span v-else-if="seen === 'false' ">Now you don't</span>
                     <span v-else></span>
                 </div>
-<pre>
+                <pre>
     <code>
 var app3 = new Vue({
     el: '#app-3',
@@ -88,7 +85,7 @@ var app3 = new Vue({
                         </li>
                     </ol>
                 </div>
-<pre>
+                <pre>
     <code>
 var app4 = new Vue({
     el: '#app-4',
@@ -102,13 +99,13 @@ var app4 = new Vue({
 });</code>
 </pre>
             </div>
-      
+
             <div class="col-6">
                 <div id="app-5">
                     <p>{{ message }}</p>
                     <button v-on:click="reverseMessage">Reverse Message</button>
                 </div>
-<pre>
+                <pre>
     <code>
 var app5 = new Vue({
     el: '#app-5',
@@ -129,7 +126,7 @@ var app5 = new Vue({
                     <p>{{ message }}</p>
                     <input v-model="message" :placeholder="placeholder">
                 </div>
-<pre>
+                <pre>
     <code>
 var app6 = new Vue({
     el: '#app-6',
@@ -148,7 +145,7 @@ var app6 = new Vue({
                         <todo-item v-for='item in groceryList' v-bind:todo='item' v-bind:key='item-id'></todo-item>
                     </ol>
                 </div>
-<pre>
+                <pre>
     <code>
 Vue.component('todo-item', {
 props: ['todo'],
@@ -167,7 +164,7 @@ var app7 = new Vue({
 });        
     </code>
 </pre>
-            </div>            
+            </div>
         </div>
     </div>
 
@@ -176,6 +173,7 @@ var app7 = new Vue({
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/style.js"></script>
 </body>
 
 </body>
